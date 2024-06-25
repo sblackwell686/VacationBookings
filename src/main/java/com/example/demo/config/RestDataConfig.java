@@ -1,6 +1,6 @@
-package src.main.java.com.example.demo.config;
+package com.example.demo.config;
 
-import edu.wgu.d288_backend.entities.*;
+import com.example.demo.entities.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -45,4 +45,3 @@ public class RestDataConfig implements RepositoryRestConfigurer {
 
     }
 }
-
