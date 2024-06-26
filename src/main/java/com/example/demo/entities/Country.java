@@ -29,11 +29,11 @@ public class Country {
     private String country_name;
 
     @Column(name="create_date")
-    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date create_date;
 
     @Column(name="last_update")
-    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date last_update;
 
     @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

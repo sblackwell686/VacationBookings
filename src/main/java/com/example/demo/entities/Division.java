@@ -41,10 +41,15 @@ public class Division {
     private Country country;
 
     @Column(name = "country_id", insertable = false, updatable = false)
-    private Long country_ID;
+    private Long countryID;
 
     @OneToMany(mappedBy = "division", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Customer> customers;
+
+    public void setCountry(Country country) {
+        this.country = country;
+        this.countryID = (country != null) ? country.getId() : null;
+    }
 
 
 }
