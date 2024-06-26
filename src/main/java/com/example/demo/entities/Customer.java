@@ -1,10 +1,7 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -26,21 +23,21 @@ public class Customer {
     @Column(name= "customer_id")
     private Long id;
 
-    @Column(name ="customer_first_name")
+    @Column(name ="customer_first_name", nullable = false)
     private String firstName;
 
-    @Column(name="customer_last_name")
+    @Column(name="customer_last_name", nullable = false)
     private String lastName;
 
-    @Column(name="address")
+    @Column(name="address", nullable = false)
     private String address;
 
     //city is in the ERD diagram but not in the Vacation UML
 
-    @Column(name= "postal_code")
+    @Column(name= "postal_code", nullable = false)
     private String postal_code;
 
-    @Column(name="phone")
+    @Column(name="phone", nullable = false)
     private String phone;
 
     @Column(name="create_date")
