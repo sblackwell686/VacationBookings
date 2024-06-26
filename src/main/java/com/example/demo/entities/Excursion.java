@@ -17,21 +17,21 @@ import java.util.Set;
 @Table(name="excursions")
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 
 public class Excursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="exursion_id")
+    @Column(name="excursion_id", nullable = false, updatable = false)
     private Long id;
 
-    @Column(name="exursion_title")
+    @Column(name="excursion_title")
     @JsonProperty("exursion_title")
     private String excursion_title;
 
-    @Column(name="exursion_price")
+    @Column(name="excursion_price")
     private BigDecimal excursion_price;
 
     @Column(name="image_url")
@@ -46,7 +46,7 @@ public class Excursion {
     @UpdateTimestamp
     private Date last_update;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 
