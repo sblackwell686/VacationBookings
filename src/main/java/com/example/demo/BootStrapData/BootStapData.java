@@ -1,25 +1,27 @@
 package com.example.demo.BootStrapData;
 
 import com.example.demo.dao.CustomerRepository;
-import com.example.demo.dao.DivisionRepository;
 import com.example.demo.entities.Customer;
-import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 @Component
-public class BootStapData {
+public class BootStapData implements CommandLineRunner {
 
-    @Autowired
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
-    @Autowired
-    private DivisionRepository divisionRepository;
+    //@Autowire
+    //private DivisionRepository divisionRepository;
 
-    @PostConstruct
+    public BootStapData (CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
+    //@PostConstruct
+    @Override
     public void loadInitialData() {
 
         if(customerRepository.count() == 1) {
