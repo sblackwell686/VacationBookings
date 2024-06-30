@@ -30,7 +30,7 @@ public class Division {
 
     @Column(name="create_date")
     @CreationTimestamp
-    private Date create_date;
+    private Date createdate;
 
     @Column(name="last_update")
     @UpdateTimestamp

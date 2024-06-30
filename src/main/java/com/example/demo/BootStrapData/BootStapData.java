@@ -1,27 +1,31 @@
 package com.example.demo.BootStrapData;
 
 import com.example.demo.dao.CustomerRepository;
+import com.example.demo.dao.DivisionRepository;
 import com.example.demo.entities.Customer;
-
+import com.example.demo.entities.Division;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
 import java.util.Date;
+import java.util.Scanner;
 
 @Component
-public class BootStapData implements CommandLineRunner {
+public class BootStapData {
 
-    private final CustomerRepository customerRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
-    //@Autowire
-    //private DivisionRepository divisionRepository;
+    @Autowired
+    private DivisionRepository divisionRepository;
 
-    public BootStapData (CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
+    //public BootStapData (CustomerRepository customerRepository) {
+        //this.customerRepository = customerRepository;
+    //}
 
-    //@PostConstruct
-    @Override
+    @PostConstruct
+    //@Override
     public void loadInitialData() {
 
         if(customerRepository.count() == 1) {
@@ -84,7 +88,7 @@ public class BootStapData implements CommandLineRunner {
 
             System.out.print("Sample customers added!");
         } else {
-            System.out.print("Sample customer could not be added.");
+            System.out.print("Sample customers could not be added.");
         }
     }
 }
