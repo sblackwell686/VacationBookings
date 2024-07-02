@@ -16,7 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+
 
 public class Division {
 
@@ -30,26 +30,21 @@ public class Division {
 
     @Column(name="create_date")
     @CreationTimestamp
-    private Date createdate;
+    private Date create_date;
 
     @Column(name="last_update")
     @UpdateTimestamp
     private Date last_update;
 
     @ManyToOne
-    @JoinColumn(name="country_id")
+    @JoinColumn(name="country_id", nullable = false, updatable = false, insertable = false)
     private Country country;
 
-    @Column(name = "country_id", insertable = false, updatable = false)
-    private Long countryID;
+    @Column(name = "country_id")
+    private Long country_id;
 
     @OneToMany(mappedBy = "division", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Customer> customers;
-
-    public void setCountry(Country country) {
-        this.country = country;
-        this.countryID = (country != null) ? country.getId() : null;
-    }
 
 
 }
